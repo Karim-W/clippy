@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
 	"github.com/karim-w/clippy/quill/controllers"
 	"github.com/karim-w/clippy/quill/db"
@@ -16,8 +17,9 @@ func main() {
 	ser := service.NewClipService(ctx)
 	cont := controllers.NewCreateController(ser)
 	app := fiber.New()
+	app.Use(cors.New())
 	rg := app.Group("/api/v1")
 	Clips := rg.Group("/clips")
 	cont.SetupRoutes(&Clips)
-	app.Listen(":3000")
+	app.Listen(":4000")
 }

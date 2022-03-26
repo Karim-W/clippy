@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Home from './pages/index';
 import About from './pages/About';
 import NotFound from './pages/404';
+import Create from './pages/Create';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Home />} />
+        <Route path="/create" element={<Create />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
