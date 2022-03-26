@@ -1,7 +1,8 @@
 import axios from "axios";
+import { ClipBoard } from "../models/clipboard";
 export const CreateAClipBoardItem = async (
   clip: string
-): Promise<Clipboard> => {
+): Promise<ClipBoard> => {
   var data = JSON.stringify({
     clip: clip,
   });
@@ -16,6 +17,15 @@ export const CreateAClipBoardItem = async (
   } as any;
 
   let res = await axios(config);
-  let response = res.data as Clipboard;
-  return response;
+  return res.data as ClipBoard;
+};
+
+export const GetAClipBoardItemById = async (id: string): Promise<ClipBoard> => {
+  var config = {
+    method: "get",
+    url: "http://localhost:4001/api/v1/clips/" + id,
+    headers: {},
+  } as any;
+  let res = await axios(config);
+  return res.data as ClipBoard;
 };

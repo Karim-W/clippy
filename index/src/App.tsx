@@ -4,6 +4,7 @@ import Home from './pages/index';
 import About from './pages/About';
 import NotFound from './pages/404';
 import Create from './pages/Create';
+import ClipViewer from './pages/ClipViewer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/clips/:id" element={<ClipViewer />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
