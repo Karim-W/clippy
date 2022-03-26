@@ -19,5 +19,5 @@ func main() {
 	rg := app.Group("/api/v1")
 	Clips := rg.Group("/clips")
 	cont.SetupRoutes(&Clips)
-	app.Listen(":3001")
+	app.Listen(":3000")
 }
