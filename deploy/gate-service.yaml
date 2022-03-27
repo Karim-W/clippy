@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gate
+spec:
+  type: NodePort
+  ports:
+    - port: 4001
+      targetPort: 4001
+      protocol: TCP
+      nodePort: 31234
+  selector:
+    app: gate

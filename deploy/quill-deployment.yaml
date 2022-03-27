@@ -1,0 +1,36 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quill
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quill
+  template:
+    metadata:
+      labels:
+        app: quill
+    spec:
+      containers:
+        - name: quill
+          image: censoree/quill
+          imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+          ports:
+            - containerPort: 4000
+          env:
+            - name: DB_HOST
+              value: "10.1.0.11"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "secret"
+            - name: DB_NAME
+              value: "clippy"
+      restartPolicy: Always

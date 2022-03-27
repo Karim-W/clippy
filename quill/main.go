@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/joho/godotenv"
 	"github.com/karim-w/clippy/quill/controllers"
 	"github.com/karim-w/clippy/quill/db"
 	"github.com/karim-w/clippy/quill/service"
@@ -12,7 +11,6 @@ import (
 func main() {
 	println("================::::::::QUILL::::::::================")
 	println("=====================================================")
-	godotenv.Load()
 	ctx := db.InitDB()
 	ser := service.NewClipService(ctx)
 	cont := controllers.NewCreateController(ser)

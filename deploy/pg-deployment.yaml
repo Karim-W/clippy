@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: postgres
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:13.0
+          resources:
+            limits:
+              memory: 1024Mi
+              cpu: "1"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: clippy
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: secret
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: "clippy-pgdata"
+      volumes:
+        - hostPath:
+            path: "/home/docker/pgdata"
+          name: clippy-pgdata
