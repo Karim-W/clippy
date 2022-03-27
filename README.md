@@ -49,6 +49,7 @@ sequenceDiagram
  Index-->>Gate: Submit Clip View Request
  Gate-->>Database: Query Clip Details
  Gate-->>Urkle: Log Read Operation
+ Database-->>Gate: Return Clip details
  Gate-->>Index: Return clip details
  Index->>User: Privde with Clip details  
 ```
