@@ -1,4 +1,4 @@
-<span style="color:#e86372;font-size:3rem;font-weight:bold;"> Clippy</span><br/>
+# Clippy
 Getting a feel for small microsevivces implementation with GoLang for the Backend and React for the Frontend and Kubernetes Deployment.
 
 Clippy is a simple, minimalistic, Web Application to help you share items via your clipboard across all your devices.
